@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hold on, my love... 🥑</title>
+    <style>
+        :root {
+            --bg-yellow: #FFF9D2;
+            --dark-green: #3B5828;
+            --outer-green: #528929;
+            --inner-green: #89C742;
+            --body-yellow: #E6F392;
+            --pit-brown: #9E5526;
+            --blush-pink: #FFAAA6;
+        }
+
+        body {
+            background-color: var(--bg-yellow);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Main Container setup to sit on top of background */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avocado-container {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            animation: bounceUpAndDown 1.5s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .avocado-body {
+            position: relative;
+            width: 160px;
+            height: 210px;
+            background-color: var(--body-yellow);
+            border: 6px solid var(--dark-green);
+            box-shadow: inset 0 0 0 14px var(--inner-green), inset 0 0 0 24px var(--outer-green);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .leaf {
+            position: absolute;
+            top: -24px;
+            left: 55px;
+            width: 40px;
+            height: 25px;
+            background-color: var(--outer-green);
+            border: 4px solid var(--dark-green);
+            border-radius: 0px 100px 0px 100px;
+            transform: rotate(-15deg);
+            z-index: 1;
+        }
+        .leaf-stem {
+            position: absolute;
+            top: -10px;
+            left: 95px;
+            width: 4px;
+            height: 12px;
+            background-color: var(--dark-green);
+            transform: rotate(15deg);
+            z-index: 1;
+        }
+
+        .eyes-container {
+            display: flex;
+            justify-content: space-between;
+            width: 70px;
+            margin-top: 25px;
+            position: relative;
+        }
+        .eye {
+            width: 18px;
+            height: 18px;
+            background-color: var(--dark-green);
+            border-radius: 50%;
+            position: relative;
+        }
+        .eye::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .smile {
+            width: 16px;
+            height: 8px;
+            border: 4px solid var(--dark-green);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            margin-top: 2px;
+        }
+
+        .blush-container {
+            display: flex;
+            justify-content: space-between;
+            width: 105px;
+            position: absolute;
+            top: 88px;
+        }
+        .blush {
+            width: 14px;
+            height: 8px;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .pit {
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle at 30% 30%, #BA6E39, var(--pit-brown));
+            border: 4px solid var(--dark-green);
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+
+        .arm {
+            position: absolute;
+            width: 25px;
+            height: 14px;
+            background-color: var(--outer-green);
+            border: 4px solid var(--dark-green);
+            top: 110px;
+            z-index: 1;
+        }
+        .arm.left { left: -12px; border-radius: 20px 0 0 20px; transform: rotate(-10deg); }
+        .arm.right { right: -12px; border-radius: 0 20px 20px 0; transform: rotate(10deg); }
+
+        .legs-container {
+            display: flex;
+            justify-content: space-between;
+            width: 65px;
+            position: absolute;
+            bottom: 25px;
+            z-index: 1;
+        }
+        .leg {
+            width: 20px;
+            height: 22px;
+            background-color: var(--outer-green);
+            border: 4px solid var(--dark-green);
+            border-radius: 0 0 15px 15px;
+        }
+
+        h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            width: 200px;
+            height: 10px;
+            border: 3px solid var(--dark-green);
+            border-radius: 10px;
+            background-color: transparent;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: var(--outer-green);
+            border-radius: 10px;
+            animation: fillProgress 3.5s linear forwards;
+        }
+
+        @keyframes bounceUpAndDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fillProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="content-wrapper">
+        <div class="avocado-container">
+            <div class="leaf"></div>
+            <div class="leaf-stem"></div>
+            <div class="arm left"></div>
+            <div class="avocado-body">
+                <div class="eyes-container">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="blush-container">
+                    <div class="blush"></div>
+                    <div class="blush"></div>
+                </div>
+                <div class="smile"></div>
+                <div class="pit"></div>
+            </div>
+            <div class="arm right"></div>
+            <div class="legs-container">
+                <div class="leg"></div>
+                <div class="leg"></div>
+            </div>
+        </div>
+
+        <h1>Wait for a minute my love</h1>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "proposal.html";
+        }, 4000);
+    </script>
+</body>
+</html>
