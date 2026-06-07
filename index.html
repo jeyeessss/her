@@ -29,33 +29,85 @@
             position: relative;
         }
 
-        /* Main Container setup to sit on top of background */
+        /* Clean Background Floating Elements */
+        .bg-particle {
+            position: absolute;
+            bottom: -150px; 
+            font-size: 3.5rem; 
+            opacity: 0.35; 
+            animation: floatUp 12s linear infinite;
+            z-index: 1;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.35; }
+            90% { opacity: 0.35; }
+            100% {
+                transform: translateY(-130vh) translateX(90px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .p1 { left: 3%;   animation-duration: 9s;   animation-delay: 0s; }
+        .p2 { left: 7%;   animation-duration: 14s;  animation-delay: 4s; }
+        .p3 { left: 12%;  animation-duration: 11s;  animation-delay: 1.5s; }
+        .p4 { left: 16%;  animation-duration: 16s;  animation-delay: 7s; }
+        .p5 { left: 21%;  animation-duration: 13s;  animation-delay: 3s; }
+        .p6 { left: 25%;  animation-duration: 10s;  animation-delay: 8.5s; }
+        .p7 { left: 30%;  animation-duration: 15s;  animation-delay: 5s; }
+        .p8 { left: 34%;  animation-duration: 12s;  animation-delay: 1s; }
+        .p9 { left: 39%;  animation-duration: 17s;  animation-delay: 9.5s; }
+        .p10 { left: 43%; animation-duration: 11s;  animation-delay: 3.5s; }
+        .p11 { left: 48%; animation-duration: 14s;  animation-delay: 6s; }
+        .p12 { left: 52%; animation-duration: 10s;  animation-delay: 2s; }
+        .p13 { left: 57%; animation-duration: 16s;  animation-delay: 8s; }
+        .p14 { left: 61%; animation-duration: 12s;  animation-delay: 4.5s; }
+        .p15 { left: 66%; animation-duration: 15s;  animation-delay: 0.5s; }
+        .p16 { left: 70%; animation-duration: 13s;  animation-delay: 7.5s; }
+        .p17 { left: 75%; animation-duration: 9s;   animation-delay: 5.5s; }
+        .p18 { left: 79%; animation-duration: 17s;  animation-delay: 2s; }
+        .p19 { left: 84%; animation-duration: 11s;  animation-delay: 9s; }
+        .p20 { left: 88%; animation-duration: 14s;  animation-delay: 3.5s; }
+        .p21 { left: 91%; animation-duration: 12s;  animation-delay: 6.5s; }
+        .p22 { left: 94%; animation-duration: 15s;  animation-delay: 1s; }
+        .p23 { left: 96%; animation-duration: 10s;  animation-delay: 4s; }
+        .p24 { left: 98%; animation-duration: 13s;  animation-delay: 8s; }
+
+        /* Mobile Wrapper Optimization */
         .content-wrapper {
             position: relative;
             z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 85%;
+            max-width: 420px;
+            text-align: center;
         }
 
         .avocado-container {
             position: relative;
-            width: 200px;
-            height: 250px;
+            width: 170px;
+            height: 220px;
             animation: bounceUpAndDown 1.5s ease-in-out infinite;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .avocado-body {
             position: relative;
-            width: 160px;
-            height: 210px;
+            width: 135px;
+            height: 180px;
             background-color: var(--body-yellow);
             border: 6px solid var(--dark-green);
-            box-shadow: inset 0 0 0 14px var(--inner-green), inset 0 0 0 24px var(--outer-green);
+            box-shadow: inset 0 0 0 12px var(--inner-green), inset 0 0 0 20px var(--outer-green);
             border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
             display: flex;
             flex-direction: column;
@@ -66,10 +118,10 @@
 
         .leaf {
             position: absolute;
-            top: -24px;
-            left: 55px;
-            width: 40px;
-            height: 25px;
+            top: -20px;
+            left: 45px;
+            width: 35px;
+            height: 22px;
             background-color: var(--outer-green);
             border: 4px solid var(--dark-green);
             border-radius: 0px 100px 0px 100px;
@@ -78,10 +130,10 @@
         }
         .leaf-stem {
             position: absolute;
-            top: -10px;
-            left: 95px;
+            top: -8px;
+            left: 80px;
             width: 4px;
-            height: 12px;
+            height: 10px;
             background-color: var(--dark-green);
             transform: rotate(15deg);
             z-index: 1;
@@ -90,13 +142,13 @@
         .eyes-container {
             display: flex;
             justify-content: space-between;
-            width: 70px;
-            margin-top: 25px;
+            width: 60px;
+            margin-top: 20px;
             position: relative;
         }
         .eye {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             background-color: var(--dark-green);
             border-radius: 50%;
             position: relative;
@@ -104,17 +156,17 @@
         .eye::after {
             content: '';
             position: absolute;
-            top: 3px;
-            left: 4px;
-            width: 5px;
-            height: 5px;
+            top: 2px;
+            left: 3px;
+            width: 4px;
+            height: 4px;
             background-color: white;
             border-radius: 50%;
         }
 
         .smile {
-            width: 16px;
-            height: 8px;
+            width: 14px;
+            height: 7px;
             border: 4px solid var(--dark-green);
             border-top: none;
             border-radius: 0 0 12px 12px;
@@ -124,70 +176,72 @@
         .blush-container {
             display: flex;
             justify-content: space-between;
-            width: 105px;
+            width: 90px;
             position: absolute;
-            top: 88px;
+            top: 75px;
         }
         .blush {
-            width: 14px;
-            height: 8px;
+            width: 12px;
+            height: 7px;
             background-color: var(--blush-pink);
             border-radius: 50%;
             opacity: 0.8;
         }
 
         .pit {
-            width: 55px;
-            height: 55px;
+            width: 48px;
+            height: 48px;
             background: radial-gradient(circle at 30% 30%, #BA6E39, var(--pit-brown));
             border: 4px solid var(--dark-green);
             border-radius: 50%;
-            margin-top: 15px;
+            margin-top: 12px;
         }
 
         .arm {
             position: absolute;
-            width: 25px;
-            height: 14px;
+            width: 22px;
+            height: 12px;
             background-color: var(--outer-green);
             border: 4px solid var(--dark-green);
-            top: 110px;
+            top: 95px;
             z-index: 1;
         }
-        .arm.left { left: -12px; border-radius: 20px 0 0 20px; transform: rotate(-10deg); }
-        .arm.right { right: -12px; border-radius: 0 20px 20px 0; transform: rotate(10deg); }
+        .arm.left { left: -10px; border-radius: 20px 0 0 20px; transform: rotate(-10deg); }
+        .arm.right { right: -10px; border-radius: 0 20px 20px 0; transform: rotate(10deg); }
 
         .legs-container {
             display: flex;
             justify-content: space-between;
-            width: 65px;
+            width: 55px;
             position: absolute;
             bottom: 25px;
             z-index: 1;
         }
         .leg {
-            width: 20px;
-            height: 22px;
+            width: 16px;
+            height: 18px;
             background-color: var(--outer-green);
             border: 4px solid var(--dark-green);
             border-radius: 0 0 15px 15px;
         }
 
+        /* Center and resize header font for phone view */
         h1 {
             color: var(--dark-green);
-            font-size: 1.8rem;
-            margin: 10px 0;
+            font-size: 1.4rem;
+            margin: 15px 0 10px 0;
             font-weight: bold;
+            width: 100%;
+            text-align: center;
         }
 
         .progress-container {
-            width: 200px;
+            width: 180px;
             height: 10px;
             border: 3px solid var(--dark-green);
             border-radius: 10px;
             background-color: transparent;
             overflow: hidden;
-            margin-top: 10px;
         }
 
         .progress-bar {
@@ -200,7 +254,7 @@
 
         @keyframes bounceUpAndDown {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         @keyframes fillProgress {
@@ -211,6 +265,30 @@
 </head>
 <body>
 
+    <div class="bg-particle p1">🥑</div>
+    <div class="bg-particle p2">❤️</div>
+    <div class="bg-particle p3">🥑</div>
+    <div class="bg-particle p4">💚</div>
+    <div class="bg-particle p5">🥑</div>
+    <div class="bg-particle p6">💕</div>
+    <div class="bg-particle p7">🥑</div>
+    <div class="bg-particle p8">❤️</div>
+    <div class="bg-particle p9">🥑</div>
+    <div class="bg-particle p10">💚</div>
+    <div class="bg-particle p11">🥑</div>
+    <div class="bg-particle p12">💕</div>
+    <div class="bg-particle p13">🥑</div>
+    <div class="bg-particle p14">❤️</div>
+    <div class="bg-particle p15">🥑</div>
+    <div class="bg-particle p16">💚</div>
+    <div class="bg-particle p17">🥑</div>
+    <div class="bg-particle p18">💕</div>
+    <div class="bg-particle p19">🥑</div>
+    <div class="bg-particle p20">❤️</div>
+    <div class="bg-particle p21">🥑</div>
+    <div class="bg-particle p22">💚</div>
+    <div class="bg-particle p23">🥑</div>
+    <div class="bg-particle p24">💕</div>
 
     <div class="content-wrapper">
         <div class="avocado-container">
@@ -236,7 +314,7 @@
             </div>
         </div>
 
-        <h2>Wait for a minute my love</h2>
+        <h1>Wait for a minute my love</h1>
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
